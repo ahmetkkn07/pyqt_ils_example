@@ -66,3 +66,22 @@ def add(query):
         if conn is not None:
             conn.close()
             logger.info("Database connection closed.")
+
+
+def update(query):
+    try:
+        params = config()
+        logger.info("Connecting to the PostgreSQL database...")
+        conn = psycopg2.connect(**params)
+        cur = conn.cursor()
+        cur.execute(query)
+        conn.commit()
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        conn.rollback()
+        logger.error(error)
+        raise Exception
+    finally:
+        if conn is not None:
+            conn.close()
+            logger.info("Database connection closed.")
