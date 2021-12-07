@@ -7,8 +7,8 @@ from loginWidget import LoginWidget
 
 def main():
     app = QApplication(sys.argv)
-    login = LoginWidget()
-    login.show()
+    loginWidget = LoginWidget()
+    loginWidget.show()
     sys.exit(app.exec_())
 
 
