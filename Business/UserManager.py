@@ -1,5 +1,4 @@
-from DataAccess.database import get
-from DataAccess.database import add
+from DataAccess.database import get, add
 
 
 class UserManager:
