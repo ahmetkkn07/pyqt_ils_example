@@ -47,6 +47,7 @@ class Login(QWidget):
         label_password = QLabel("Şifre")
         label_password.setFixedWidth(75)
         self.lineEdit_password = QLineEdit()
+        self.lineEdit_password.setEchoMode(QLineEdit.Password)
         self.lineEdit_password.setFixedWidth(200)
         self.lineEdit_password.returnPressed.connect(self.login)
         h_box_password.addStretch()
