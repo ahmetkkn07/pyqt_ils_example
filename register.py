@@ -1,4 +1,4 @@
-from Business.UserManager import UserManager
+from Business.userManager import UserManager
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import (
     QHBoxLayout,
