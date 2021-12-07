@@ -28,7 +28,7 @@ class SelectBookToEditWidget(QWidget):
 
         v_box.addStretch()
 
-        label_title = QLabel("Kitap Listele")
+        label_title = QLabel("Kitap Düzenle")
         label_title.setAlignment(QtCore.Qt.AlignCenter)
         label_title.setStyleSheet("font-size: 20px")
         v_box.addWidget(label_title)
@@ -74,8 +74,8 @@ class SelectBookToEditWidget(QWidget):
             print(books)
 
         h_box_buttons = QHBoxLayout()
-        pushButton_add = QPushButton("Boş")
-        # pushButton_add.pressed.connect(self.add)
+        pushButton_add = QPushButton("Düzenle")
+        pushButton_add.pressed.connect(self.edit_book)
         pushButton_back = QPushButton("Geri Dön")
         pushButton_back.pressed.connect(self.main_menu)
         h_box_buttons.addStretch()
@@ -93,4 +93,10 @@ class SelectBookToEditWidget(QWidget):
         from mainMenuWidget import MainMenuWidget
         self.mainMenu = MainMenuWidget()
         self.mainMenu.show()
+        self.close()
+
+    def edit_book(self):
+        from editBookWidget import EditBookWidget
+        self.editBookWidget = EditBookWidget()
+        self.editBookWidget.show()
         self.close()
