@@ -19,7 +19,8 @@ class BookManager:
         books = get_all("SELECT * FROM books ORDER BY id ASC")
         return books
 
-    def update_book(self, selected_id, name, author, number_of_pages, publisher):
+    def update_book(self, selected_id, name, author, number_of_pages,
+                    publisher):
         update(
             f"UPDATE books SET name='{name}', author='{author}', \
                 number_of_pages={number_of_pages}, publisher='{publisher}' \
