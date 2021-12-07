@@ -75,13 +75,10 @@ class ListBooksWidget(QWidget):
             v_box.addWidget(self.tableView)
 
         h_box_buttons = QHBoxLayout()
-        pushButton_add = QPushButton("Boş")
-        # pushButton_add.pressed.connect(self.add)
         pushButton_back = QPushButton("Geri Dön")
         pushButton_back.pressed.connect(self.main_menu)
         h_box_buttons.addStretch()
         h_box_buttons.addWidget(pushButton_back)
-        h_box_buttons.addWidget(pushButton_add)
         h_box_buttons.addStretch()
 
         v_box.addLayout(h_box_buttons)
