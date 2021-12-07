@@ -55,7 +55,10 @@ class MainMenuWidget(QWidget):
         self.close()
 
     def select_book_to_edit(self):
-        pass
+        from selectBookToEditWidget import SelectBookToEditWidget
+        self.selectBookToEditWidget = SelectBookToEditWidget()
+        self.selectBookToEditWidget.show()
+        self.close()
 
     def list_books(self):
         from listBooksWidget import ListBooksWidget

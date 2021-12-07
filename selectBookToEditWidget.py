@@ -2,6 +2,7 @@ from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from Business.bookManager import BookManager
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import (
+    QAbstractItemView,
     QHBoxLayout,
     QHeaderView,
     QLabel,
@@ -69,6 +70,11 @@ class SelectBookToEditWidget(QWidget):
             self.tableView.horizontalHeader().setSectionResizeMode(
                 QHeaderView.Stretch)
             self.tableView.setMinimumHeight(300)
+            # ! Hücre değil satır seçilmesi için
+            self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
+
+            self.itemSelectionModel = self.tableView.selectionModel()
+
             v_box.addWidget(self.tableView)
 
             print(books)
@@ -96,7 +102,8 @@ class SelectBookToEditWidget(QWidget):
         self.close()
 
     def edit_book(self):
+        selected_book_id = self.itemSelectionModel.selectedRows()[0].data()
         from editBookWidget import EditBookWidget
-        self.editBookWidget = EditBookWidget()
+        self.editBookWidget = EditBookWidget(selected_book_id)
         self.editBookWidget.show()
         self.close()

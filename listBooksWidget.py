@@ -2,6 +2,7 @@ from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from Business.bookManager import BookManager
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import (
+    QAbstractItemView,
     QHBoxLayout,
     QHeaderView,
     QLabel,
@@ -69,6 +70,8 @@ class ListBooksWidget(QWidget):
             self.tableView.horizontalHeader().setSectionResizeMode(
                 QHeaderView.Stretch)
             self.tableView.setMinimumHeight(300)
+            # ! Hücre değil satır seçilmesi için
+            self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
             v_box.addWidget(self.tableView)
 
             print(books)
