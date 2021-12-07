@@ -108,4 +108,7 @@ class Login(QWidget):
         self.close()
 
     def main_menu(self):
-        pass
+        from mainMenu import MainMenu
+        self.mainMenu = MainMenu()
+        self.mainMenu.show()
+        self.close()
