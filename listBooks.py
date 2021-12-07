@@ -1,11 +1,13 @@
+from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from Business.bookManager import BookManager
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import (
     QHBoxLayout,
+    QHeaderView,
     QLabel,
     QVBoxLayout,
     QWidget,
-    # QLineEdit,
+    QTableView,
     QPushButton,
     QMessageBox
 )
@@ -32,51 +34,6 @@ class ListBooks(QWidget):
         v_box.addWidget(label_title)
         v_box.addStretch()
 
-        # h_box_book_name = QHBoxLayout()
-        # label_book_name = QLabel("Kitap Adı")
-        # label_book_name.setFixedWidth(75)
-        # self.lineEdit_book_name = QLineEdit()
-        # self.lineEdit_book_name.setFixedWidth(200)
-        # h_box_book_name.addStretch()
-        # h_box_book_name.addWidget(label_book_name)
-        # h_box_book_name.addWidget(self.lineEdit_book_name)
-        # h_box_book_name.addStretch()
-        # v_box.addLayout(h_box_book_name)
-
-        # h_box_author = QHBoxLayout()
-        # label_author = QLabel("Yazar")
-        # label_author.setFixedWidth(75)
-        # self.lineEdit_author = QLineEdit()
-        # self.lineEdit_author.setFixedWidth(200)
-        # h_box_author.addStretch()
-        # h_box_author.addWidget(label_author)
-        # h_box_author.addWidget(self.lineEdit_author)
-        # h_box_author.addStretch()
-        # v_box.addLayout(h_box_author)
-
-        # h_box_number_of_pages = QHBoxLayout()
-        # label_number_of_pages = QLabel("Sayfa Sayısı")
-        # label_number_of_pages.setFixedWidth(75)
-        # self.lineEdit_number_of_pages = QLineEdit()
-        # self.lineEdit_number_of_pages.setFixedWidth(200)
-        # h_box_number_of_pages.addStretch()
-        # h_box_number_of_pages.addWidget(label_number_of_pages)
-        # h_box_number_of_pages.addWidget(self.lineEdit_number_of_pages)
-        # h_box_number_of_pages.addStretch()
-        # v_box.addLayout(h_box_number_of_pages)
-
-        # h_box_publisher = QHBoxLayout()
-        # label_publisher = QLabel("Yayınevi")
-        # label_publisher.setFixedWidth(75)
-        # self.lineEdit_publisher = QLineEdit()
-        # self.lineEdit_publisher.setFixedWidth(200)
-        # self.lineEdit_publisher.returnPressed.connect(self.add)
-        # h_box_publisher.addStretch()
-        # h_box_publisher.addWidget(label_publisher)
-        # h_box_publisher.addWidget(self.lineEdit_publisher)
-        # h_box_publisher.addStretch()
-        # v_box.addLayout(h_box_publisher)
-
         try:
             bookManager = BookManager()
             books = bookManager.get_all()
@@ -91,12 +48,35 @@ class ListBooks(QWidget):
             if returnValue == QMessageBox.Ok:
                 pass
         else:
+            self.tableView = QTableView()
+
+            # self.model = TableModel(books)
+            self.standardItemModel = QStandardItemModel()
+            for row, book in enumerate(books):
+
+                for column, data in enumerate(book):
+                    item = QStandardItem(str(data))
+                    item.setTextAlignment(QtCore.Qt.AlignCenter)
+                    self.standardItemModel.setItem(row, column, item)
+
+            self.standardItemModel.setHorizontalHeaderLabels(
+                ["Id", "Kitap Adı", "Yazar", "Sayfa Sayısı", "Yayınevi"])
+            self.tableView.setModel(self.standardItemModel)
+
+            # ! Dikey sütun sayılarını gizle
+            self.tableView.verticalHeader().hide()
+            # ! Hücre genişliklerini ortala
+            self.tableView.horizontalHeader().setSectionResizeMode(
+                QHeaderView.Stretch)
+            self.tableView.setMinimumHeight(300)
+            v_box.addWidget(self.tableView)
+
             print(books)
 
         h_box_buttons = QHBoxLayout()
         pushButton_add = QPushButton("Boş")
         # pushButton_add.pressed.connect(self.add)
-        pushButton_back = QPushButton("Geri Dön (İptal)")
+        pushButton_back = QPushButton("Geri Dön")
         pushButton_back.pressed.connect(self.main_menu)
         h_box_buttons.addStretch()
         h_box_buttons.addWidget(pushButton_back)

@@ -58,7 +58,10 @@ class MainMenu(QWidget):
         pass
 
     def list_books(self):
-        pass
+        from listBooks import ListBooks
+        self.listBooks = ListBooks()
+        self.listBooks.show()
+        self.close()
 
     def logout(self):
         from login import Login
