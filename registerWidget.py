@@ -13,7 +13,7 @@ from Alogger import Alogger
 logger = Alogger.Alogger(log_level=Alogger.LogLevel.ALL, log_to_file=False)
 
 
-class Register(QWidget):
+class RegisterWidget(QWidget):
     def __init__(self) -> None:
         super().__init__()
         self.init_ui()
@@ -129,7 +129,7 @@ class Register(QWidget):
                 self.login()
 
     def login(self):
-        from loginWidget import Login
-        self.login = Login()
+        from loginWidget import LoginWidget
+        self.login = LoginWidget()
         self.login.show()
         self.close()

@@ -9,7 +9,7 @@ from Alogger import Alogger
 logger = Alogger.Alogger(log_level=Alogger.LogLevel.ALL, log_to_file=False)
 
 
-class MainMenu(QWidget):
+class MainMenuWidget(QWidget):
     def __init__(self) -> None:
         super().__init__()
         self.init_ui()
@@ -49,8 +49,8 @@ class MainMenu(QWidget):
         self.setLayout(v_box)
 
     def add_book(self):
-        from addBookWidget import AddBook
-        self.addBook = AddBook()
+        from addBookWidget import AddBookWidget
+        self.addBook = AddBookWidget()
         self.addBook.show()
         self.close()
 
@@ -58,13 +58,13 @@ class MainMenu(QWidget):
         pass
 
     def list_books(self):
-        from listBooksWidget import ListBooks
-        self.listBooks = ListBooks()
+        from listBooksWidget import ListBooksWidget
+        self.listBooks = ListBooksWidget()
         self.listBooks.show()
         self.close()
 
     def logout(self):
-        from loginWidget import Login
-        self.login = Login()
+        from loginWidget import LoginWidget
+        self.login = LoginWidget()
         self.login.show()
         self.close()

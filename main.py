@@ -2,12 +2,12 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from loginWidget import Login
+from loginWidget import LoginWidget
 
 
 def main():
     app = QApplication(sys.argv)
-    login = Login()
+    login = LoginWidget()
     login.show()
     sys.exit(app.exec_())
 

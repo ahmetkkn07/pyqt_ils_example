@@ -13,7 +13,7 @@ from Alogger import Alogger
 logger = Alogger.Alogger(log_level=Alogger.LogLevel.ALL, log_to_file=False)
 
 
-class AddBook(QWidget):
+class AddBookWidget(QWidget):
     def __init__(self) -> None:
         super().__init__()
         self.init_ui()
@@ -122,7 +122,7 @@ class AddBook(QWidget):
                 pass
 
     def main_menu(self):
-        from mainMenuWidget import MainMenu
-        self.mainMenu = MainMenu()
+        from mainMenuWidget import MainMenuWidget
+        self.mainMenu = MainMenuWidget()
         self.mainMenu.show()
         self.close()
