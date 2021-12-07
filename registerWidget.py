@@ -77,7 +77,7 @@ class RegisterWidget(QWidget):
         self.lineEdit_password = QLineEdit()
         self.lineEdit_password.setEchoMode(QLineEdit.Password)
         self.lineEdit_password.setFixedWidth(200)
-        self.lineEdit_password.returnPressed.connect(self.login)
+        self.lineEdit_password.returnPressed.connect(self.loginWidget)
         h_box_password.addStretch()
         h_box_password.addWidget(label_password)
         h_box_password.addWidget(self.lineEdit_password)
@@ -88,7 +88,7 @@ class RegisterWidget(QWidget):
         pushButton_register = QPushButton("Kaydol")
         pushButton_register.pressed.connect(self.register)
         pushButton_login = QPushButton("Hesabın var mı? Giriş yap")
-        pushButton_login.pressed.connect(self.login)
+        pushButton_login.pressed.connect(self.loginWidget)
         h_box_buttons.addStretch()
         h_box_buttons.addWidget(pushButton_login)
         h_box_buttons.addWidget(pushButton_register)
@@ -126,10 +126,10 @@ class RegisterWidget(QWidget):
             msgBox.setStandardButtons(QMessageBox.Ok)
             returnValue = msgBox.exec()
             if returnValue == QMessageBox.Ok:
-                self.login()
+                self.loginWidget()
 
-    def login(self):
+    def loginWidget(self):
         from loginWidget import LoginWidget
-        self.login = LoginWidget()
-        self.login.show()
+        self.loginWidget = LoginWidget()
+        self.loginWidget.show()
         self.close()

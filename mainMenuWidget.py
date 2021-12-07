@@ -50,8 +50,8 @@ class MainMenuWidget(QWidget):
 
     def add_book(self):
         from addBookWidget import AddBookWidget
-        self.addBook = AddBookWidget()
-        self.addBook.show()
+        self.addBookWidget = AddBookWidget()
+        self.addBookWidget.show()
         self.close()
 
     def select_book_to_edit(self):
@@ -59,12 +59,12 @@ class MainMenuWidget(QWidget):
 
     def list_books(self):
         from listBooksWidget import ListBooksWidget
-        self.listBooks = ListBooksWidget()
-        self.listBooks.show()
+        self.listBooksWidget = ListBooksWidget()
+        self.listBooksWidget.show()
         self.close()
 
     def logout(self):
         from loginWidget import LoginWidget
-        self.login = LoginWidget()
-        self.login.show()
+        self.loginWidget = LoginWidget()
+        self.loginWidget.show()
         self.close()

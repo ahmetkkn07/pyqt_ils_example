@@ -91,8 +91,8 @@ class SelectBookToEditWidget(QWidget):
 
     def main_menu(self):
         from mainMenuWidget import MainMenuWidget
-        self.mainMenu = MainMenuWidget()
-        self.mainMenu.show()
+        self.mainMenuWidget = MainMenuWidget()
+        self.mainMenuWidget.show()
         self.close()
 
     def edit_book(self):

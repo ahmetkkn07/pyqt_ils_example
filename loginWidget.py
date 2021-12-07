@@ -60,7 +60,7 @@ class LoginWidget(QWidget):
         pushButton_login = QPushButton("Giriş Yap")
         pushButton_login.pressed.connect(self.login)
         pushButton_register = QPushButton("Hesabın yok mu? Kaydol")
-        pushButton_register.pressed.connect(self.register)
+        pushButton_register.pressed.connect(self.registerWidget)
         h_box_buttons.addStretch()
         h_box_buttons.addWidget(pushButton_register)
         h_box_buttons.addWidget(pushButton_login)
@@ -101,14 +101,14 @@ class LoginWidget(QWidget):
             if returnValue == QMessageBox.Ok:
                 pass
 
-    def register(self):
+    def registerWidget(self):
         from registerWidget import RegisterWidget
-        self.register = RegisterWidget()
-        self.register.show()
+        self.registerWidget = RegisterWidget()
+        self.registerWidget.show()
         self.close()
 
     def main_menu(self):
         from mainMenuWidget import MainMenuWidget
-        self.mainMenu = MainMenuWidget()
-        self.mainMenu.show()
+        self.mainMenuWidget = MainMenuWidget()
+        self.mainMenuWidget.show()
         self.close()
