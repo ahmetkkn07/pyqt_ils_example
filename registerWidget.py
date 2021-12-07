@@ -129,7 +129,7 @@ class Register(QWidget):
                 self.login()
 
     def login(self):
-        from login import Login
+        from loginWidget import Login
         self.login = Login()
         self.login.show()
         self.close()

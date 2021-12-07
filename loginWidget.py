@@ -102,13 +102,13 @@ class Login(QWidget):
                 pass
 
     def register(self):
-        from register import Register
+        from registerWidget import Register
         self.register = Register()
         self.register.show()
         self.close()
 
     def main_menu(self):
-        from mainMenu import MainMenu
+        from mainMenuWidget import MainMenu
         self.mainMenu = MainMenu()
         self.mainMenu.show()
         self.close()

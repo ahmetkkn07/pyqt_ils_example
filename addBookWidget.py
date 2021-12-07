@@ -122,7 +122,7 @@ class AddBook(QWidget):
                 pass
 
     def main_menu(self):
-        from mainMenu import MainMenu
+        from mainMenuWidget import MainMenu
         self.mainMenu = MainMenu()
         self.mainMenu.show()
         self.close()

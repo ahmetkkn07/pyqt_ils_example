@@ -33,7 +33,7 @@ class MainMenu(QWidget):
         v_box.addWidget(pushButton_addBook)
 
         pushButton_editBook = QPushButton("Kitap Düzenle")
-        pushButton_editBook.pressed.connect(self.edit_book)
+        pushButton_editBook.pressed.connect(self.select_book_to_edit)
         v_box.addWidget(pushButton_editBook)
 
         pushButton_listBooks = QPushButton("Kitapları Listele")
@@ -49,22 +49,22 @@ class MainMenu(QWidget):
         self.setLayout(v_box)
 
     def add_book(self):
-        from addBook import AddBook
+        from addBookWidget import AddBook
         self.addBook = AddBook()
         self.addBook.show()
         self.close()
 
-    def edit_book(self):
+    def select_book_to_edit(self):
         pass
 
     def list_books(self):
-        from listBooks import ListBooks
+        from listBooksWidget import ListBooks
         self.listBooks = ListBooks()
         self.listBooks.show()
         self.close()
 
     def logout(self):
-        from login import Login
+        from loginWidget import Login
         self.login = Login()
         self.login.show()
         self.close()
