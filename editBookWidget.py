@@ -36,7 +36,6 @@ class EditBookWidget(QWidget):
         try:
             bookManager = BookManager()
             self.book = bookManager.get_book_by_id(self.selected_book_id)
-            print(self.selected_book_id)
         except Exception as exception:
             logger.error(exception)
             msgBox = QMessageBox()

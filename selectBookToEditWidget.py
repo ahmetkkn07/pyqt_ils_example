@@ -77,8 +77,6 @@ class SelectBookToEditWidget(QWidget):
 
             v_box.addWidget(self.tableView)
 
-            print(books)
-
         h_box_buttons = QHBoxLayout()
         pushButton_add = QPushButton("Düzenle")
         pushButton_add.pressed.connect(self.edit_book)

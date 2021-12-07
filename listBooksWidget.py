@@ -74,8 +74,6 @@ class ListBooksWidget(QWidget):
             self.tableView.setSelectionBehavior(QAbstractItemView.SelectRows)
             v_box.addWidget(self.tableView)
 
-            print(books)
-
         h_box_buttons = QHBoxLayout()
         pushButton_add = QPushButton("Boş")
         # pushButton_add.pressed.connect(self.add)

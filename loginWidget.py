@@ -88,7 +88,7 @@ class LoginWidget(QWidget):
                 if returnValue == QMessageBox.Ok:
                     pass
             else:
-                print("GİRİŞ BAŞARILI", user)
+                logger.info("GİRİŞ BAŞARILI", user)
                 self.main_menu()
         except Exception as exception:
             logger.error(exception)
