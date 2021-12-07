@@ -49,7 +49,10 @@ class MainMenu(QWidget):
         self.setLayout(v_box)
 
     def add_book(self):
-        pass
+        from addBook import AddBook
+        self.addBook = AddBook()
+        self.addBook.show()
+        self.close()
 
     def edit_book(self):
         pass
