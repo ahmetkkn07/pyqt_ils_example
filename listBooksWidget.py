@@ -51,10 +51,8 @@ class ListBooksWidget(QWidget):
         else:
             self.tableView = QTableView()
 
-            # self.model = TableModel(books)
             self.standardItemModel = QStandardItemModel()
             for row, book in enumerate(books):
-
                 for column, data in enumerate(book):
                     item = QStandardItem(str(data))
                     item.setTextAlignment(QtCore.Qt.AlignCenter)
